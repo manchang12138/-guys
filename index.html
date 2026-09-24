@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>中秋节快乐</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sky">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="rain" id="rain" aria-hidden="true"></div>
+
+      <div class="festival-text">
+        <h1>中秋节快乐</h1>
+        <p class="wish">此刻，我们共赏一个圆月.ps:吃完自己的月饼以后才能看别人的</p>
+        <div class="wish-buttons" aria-label="中秋祝福">
+          <button type="button" data-message="恭喜你，获得diy自粘贴式纪念册一个，中秋节快乐，周哥，纵使我们不在彼此身边，我们依旧团圆">西红柿月饼</button>
+          <button type="button" data-message="恭喜你，获得天蓝色保暖围巾一条，中秋节快乐，姜村萌，纵使我们不在彼此身边，我们依旧团圆">韭菜鸡蛋月饼</button>
+          <button type="button" data-message="恭喜你，获得小房子式卧室小夜灯一个，中秋节快乐，深山老笋不留名，纵使我们不在彼此身边，我们依旧团圆">酸菜月饼</button>
+          <button type="button" data-message="恭喜你，获得斜挎包一个，中秋节快乐，大黄瓜，心在一起即是团圆，要开始新的生活啊">黄瓜月饼</button>
+        </div>
+      </div>
+
+      <div class="wish-popup" id="wishPopup" role="status" aria-live="polite" aria-hidden="true">
+        <span class="popup-icon" aria-hidden="true">✦</span>
+        <p id="popupMessage"></p>
+        <button class="popup-close" id="popupClose" type="button" aria-label="关闭祝福语">×</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

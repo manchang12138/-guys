@@ -1,0 +1,288 @@
+:root {
+  --night-top: #040b20;
+  --night-mid: #0f1838;
+  --night-bottom: #1f2a52;
+  --gold: #ffd76b;
+  --bright-yellow: #fff36a;
+  --gold-soft: rgba(255, 215, 107, 0.7);
+  --white: #eef7ff;
+  --text-shadow: rgba(19, 34, 84, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, var(--night-top) 0%, var(--night-mid) 40%, var(--night-bottom) 100%);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sky {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255, 243, 178, 0.15), transparent 26%),
+    linear-gradient(180deg, rgba(10, 16, 34, 0.75) 0%, rgba(7, 10, 20, 0.2) 100%);
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.9) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,255,255,0.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,255,255,0.7) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,255,255,0.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,255,255,0.7) 0 1px, transparent 1.5px);
+  background-size: 240px 240px;
+  background-position: 20px 50px, 180px 120px, 90px 200px, 260px 90px, 320px 220px;
+  opacity: 0.9;
+}
+
+.rain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.drop {
+  position: absolute;
+  top: -12%;
+  left: 0;
+  color: var(--bright-yellow);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 248, 110, 0.95), 0 0 18px rgba(255, 190, 50, 0.7);
+  animation: fall-and-flicker var(--duration) linear infinite;
+  animation-delay: var(--delay);
+  opacity: 0.18;
+  white-space: nowrap;
+}
+
+@keyframes fall-and-flicker {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(10deg);
+    opacity: 0.16;
+  }
+  12% {
+    opacity: 0.58;
+  }
+  42% {
+    opacity: 0.88;
+  }
+  55% {
+    opacity: 0.82;
+  }
+  100% {
+    transform: translate3d(28px, 112vh, 0) rotate(12deg);
+    opacity: 0.16;
+  }
+}
+
+.festival-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  color: var(--white);
+  text-shadow: 0 6px 18px var(--text-shadow);
+}
+
+.subtitle {
+  margin: 0 0 10px;
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.6rem);
+  letter-spacing: 6px;
+  color: rgba(255, 228, 169, 0.9);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 4vw + 1rem, 6rem);
+  letter-spacing: 8px;
+  font-weight: 800;
+  color: #fffaf0;
+  animation: glow 2.8s ease-in-out infinite alternate;
+}
+
+.wish {
+  margin-top: 14px;
+  font-size: clamp(0.95rem, 1vw + 0.6rem, 1.6rem);
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.wish-buttons {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.wish-buttons button {
+  position: relative;
+  position: absolute;
+  z-index: 0;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  border: 3px solid #b96824;
+  border-radius: 50%;
+  padding: 10px 8px;
+  color: #fff1b0;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 218, 122, 0.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 68%, rgba(139, 65, 21, 0.35) 0 2px, transparent 3px),
+    linear-gradient(145deg, #f2b34f 0%, #c87128 48%, #9c4e1d 100%);
+  box-shadow:
+    inset 0 3px 5px rgba(255, 238, 165, 0.62),
+    inset 0 -5px 8px rgba(101, 39, 13, 0.4),
+    0 8px 18px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  pointer-events: auto;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(100, 43, 13, 0.85);
+  transition: left 4.2s ease-in-out, top 4.2s ease-in-out, transform 180ms ease, color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.wish-buttons button::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  z-index: -1;
+  border: 2px solid rgba(255, 224, 132, 0.65);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px rgba(143, 65, 19, 0.28);
+  pointer-events: none;
+}
+
+.wish-buttons button::after {
+  content: "✦";
+  position: absolute;
+  top: 3px;
+  right: 13px;
+  color: rgba(255, 232, 145, 0.7);
+  font-size: 0.7rem;
+  pointer-events: none;
+}
+
+.wish-buttons button:hover,
+.wish-buttons button:focus-visible {
+  color: #fffbe0;
+  filter: brightness(1.12);
+  box-shadow:
+    inset 0 3px 5px rgba(255, 238, 165, 0.7),
+    inset 0 -5px 8px rgba(101, 39, 13, 0.35),
+    0 0 24px rgba(255, 205, 81, 0.58);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.wish-popup {
+  position: fixed;
+  left: 50%;
+  bottom: 34px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(460px, calc(100% - 32px));
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 238, 139, 0.62);
+  border-radius: 16px;
+  color: #fff8d0;
+  background: rgba(15, 24, 56, 0.92);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.34), 0 0 28px rgba(255, 215, 107, 0.22);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 18px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.wish-popup.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.popup-icon {
+  color: var(--bright-yellow);
+  font-size: 1.4rem;
+}
+
+.wish-popup p {
+  flex: 1;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.popup-close {
+  border: 0;
+  padding: 0 2px;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.popup-close:hover,
+.popup-close:focus-visible {
+  color: var(--bright-yellow);
+  outline: none;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgba(255, 215, 107, 0.8), 0 0 40px rgba(255, 215, 107, 0.5);
+  }
+  to {
+    text-shadow: 0 0 24px rgba(255, 235, 153, 0.95), 0 0 50px rgba(255, 196, 77, 0.7);
+  }
+}
+
+@media (max-width: 768px) {
+  .subtitle,
+  .wish {
+    letter-spacing: 2px;
+  }
+
+  h1 {
+    letter-spacing: 4px;
+  }
+
+  .wish-buttons {
+    margin: 0;
+  }
+
+  .wish-buttons button {
+    width: 78px;
+    height: 78px;
+    padding: 8px 5px;
+    font-size: 0.76rem;
+  }
+
+  .wish-popup {
+    bottom: 20px;
+  }
+}
